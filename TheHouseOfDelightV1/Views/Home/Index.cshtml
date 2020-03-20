@@ -1,0 +1,38 @@
+﻿@model List<TheHouseOfDelightV1.DbModel.Food>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+    <div class="jumbotron">
+        <h1 class="display-4">Hello, world!</h1>
+        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+        <hr class="my-4">
+        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    </div>
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="card col-sm-3  card-margin" style="width: 18rem;">
+                <img src="~/Images/Sample.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">@item.Name</h5>
+                    <p class="card-text"><b>Description:</b> @item.Description</p>
+                    <p class="card-text"><i class="fa fa-clock-o" aria-hidden="true"></i><b> Prep Time:</b> @item.PrepTime</p>
+                    <p class="card-text"><i class="fa fa-clock-o" aria-hidden="true"></i><b> Cook Time:</b> @item.CookTime</p>
+                    <p class="card-text"><i class="fa fa-clock-o" aria-hidden="true"></i><b> Total Time:</b> @item.TotatTime</p>
+                    <p class="card-text"><i class="fa fa-cutlery" aria-hidden="true"></i><b> Servings:</b> @item.Servings</p>
+
+
+
+                    <a href="/food/fooddetails/@item.ID" class="btn btn-primary">Details</a>
+                </div>
+            </div>
+        }
+
+    </div>
+
+    
+    

@@ -1,0 +1,45 @@
+﻿@model List<TheHouseOfDelightV1.DbModel.Product>
+@{
+    ViewData["Title"] = "Admin1";
+}
+
+
+
+
+
+
+<a href="/admin1/AddNewProduct/" class="btn btn-primary">Add New Product</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Edit|Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>@item.ID</td>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+
+                <td>
+                    <a href="/admin1/EditProduct/@item.ID" class="btn btn-primary">Edit</a>
+                    <button type="button" class="btn btn-primary"> Delete</button>
+
+                </td>
+            </tr>
+
+        }
+
+    </tbody>
+
+
+
+</table>
