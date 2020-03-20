@@ -65,7 +65,9 @@
         $(".btnDeleteFood").click(function () {
             var IdOfFood = $(this).data("foodid");
             $("#idField").val(IdOfFood);
-            //alert( "Button delete clicked. Id of food is " + IdOfFood);
+            if (confirm('Are you sure to delete Food?')) {
+                $("#DeleteFoodForm").submit();               
+            } 
          });
 
 });

@@ -147,5 +147,14 @@ namespace TheHouseOfDelightV1.Controllers
         }
 
 
+        [HttpPost]
+        public IActionResult DeleteFood(int ID)
+        {
+            var Food = dbContext.Foods.Where(x => x.ID == ID).FirstOrDefault();
+            dbContext.Foods.Remove(Food);
+            dbContext.SaveChanges();
+            return Redirect("/Admin1/Food");
+        }
+
     }
 }
