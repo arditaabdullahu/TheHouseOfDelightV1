@@ -3,24 +3,24 @@
     ViewData["Title"] = "Admin1";
 }
 
-    <a href="/admin1/AddNew/" class="btn btn-primary">Add New</a>
-    
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Name</th>
-                <th scope="col">Description</th>
-                <th scope="col">Prep Time</th>
-                <th scope="col">Cook Time</th>
-                <th scope="col">Total Time</th>
-                <th scope="col">Servings</th>
-                <th scope="col">Edit|Delete</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
+<a href="/admin1/AddNew/" class="btn btn-primary">Add New</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Prep Time</th>
+            <th scope="col">Cook Time</th>
+            <th scope="col">Total Time</th>
+            <th scope="col">Servings</th>
+            <th scope="col">Edit|Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
             <tr>
 
                 <td>@item.ID</td>
@@ -31,22 +31,42 @@
                 <td>@item.TotatTime</td>
                 <td>@item.Servings</td>
 
-
-
                 <td>
                     <a href="/admin1/edit/@item.ID" class="btn btn-primary">Edit</a>
-                    <button type="button" class="btn btn-primary">Delete</button>
+                    <button type="button" id="btnDeleteFood" class="btn btn-primary btnDeleteFood" data-foodid ="@item.ID">Delete</button>
 
                 </td>
             </tr>
-            
+
         }
 
 
-            </tbody>
+    </tbody>
+</table>
+
+<div>
+    <form id="DeleteFoodForm" method="post" action="/Admin1/DeleteFood">
+        <input type="hidden" id="idField" name="ID" value="0" />
+
+    </form>
+
+</div>
 
 
 
-        </table>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+<script>
+   
+    $(document).ready(function () {
 
 
+        $(".btnDeleteFood").click(function () {
+            var IdOfFood = $(this).data("foodid");
+            $("#idField").val(IdOfFood);
+            //alert( "Button delete clicked. Id of food is " + IdOfFood);
+         });
+
+});
+</script>
