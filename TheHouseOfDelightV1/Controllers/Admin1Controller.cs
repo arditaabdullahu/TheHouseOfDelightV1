@@ -156,5 +156,22 @@ namespace TheHouseOfDelightV1.Controllers
             return Redirect("/Admin1/Food");
         }
 
+        [HttpPost]
+        public IActionResult DeleteProduct(int ID)
+        {
+            var Products = dbContext.Products.Where(x => x.ID == ID).FirstOrDefault();
+            dbContext.Products.Remove(Products);
+            dbContext.SaveChanges();
+            return Redirect("/Admin1/Products");
+        }
+
+        [HttpPost]
+        public IActionResult DeleteTypes(int ID)
+        {
+            var Types = dbContext.Types.Where(x => x.ID == ID).FirstOrDefault();
+            dbContext.Types.Remove(Types);
+            dbContext.SaveChanges();
+            return Redirect("/Admin1/Types");
+        }
     }
 }

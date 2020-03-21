@@ -1,0 +1,35 @@
+﻿@model TheHouseOfDelightV1.DbModel.Users
+@{
+    ViewData["Title"] = "EditUser";
+}
+
+<h1>EditUser</h1>
+
+
+<form method="post" action="/Users/Edit">
+    <input type="hidden" name="ID" value="@Model.ID" />
+    <div class="form-group  col-md-12">
+        <label for="Name">Name</label>
+        <input type="text" class="form-control" id="Name" name="Name" value="@Model.Name">
+    </div>
+    <div class="form-group  col-md-12">
+        <label for="Surname">Surname</label>
+        <input type="text" class="form-control" id="Surname" name="Surname" value="@Model.Surname">
+    </div>
+    <div class="form-group col-md-2 ">
+        <label for="Email">Email</label>
+        <input type="text" class="form-control" id="Email" name="Email" value="@Model.Email">
+    </div>
+    <div class="form-group col-md-2">
+        <label for="Password">Password</label>
+        <input type="text" class="form-control" id="Password" name="Password" value="@Model.Password">
+    </div>
+    <div class="form-group col-md-2">
+        <label for="City">City</label>
+        <input type="text" class="form-control" id="City" name="City" value="@Model.City">
+    </div>
+   
+
+    <input type="submit" class="btn btn-primary " value="Save" />
+    <a href="/users/users" class="btn btn-primary ">Back</a>
+</form>

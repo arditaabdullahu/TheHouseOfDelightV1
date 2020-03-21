@@ -1,0 +1,52 @@
+﻿@model List<TheHouseOfDelightV1.DbModel.Users>
+@{
+    ViewData["Title"] = "Users";
+}
+
+<h1>Users</h1>
+
+<form>
+    <div class="form-row">
+        <div class="form-group col-sm-6">
+            <label for="inputName">Name</label>
+            <input type="text" class="form-control" id="inputName" placeholder="Name">
+        </div>
+        <div class="form-group col-sm-6">
+            <label for="inputSurname"> Surname</label>
+            <input type="text" class="form-control" id="inputSurname" placeholder="Surname">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="inputEmail4">Email</label>
+            <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+        </div>
+        <div class="form-group  ">
+            <label for="inputPassword4">Password</label>
+            <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+
+
+        </div>
+        <div class="form-group  ">
+            <label for="inputPassword4">Confirm Password</label>
+            <input type="password" class="form-control" id="inputPassword4" placeholder=" Confirm Password">
+            <input type="checkbox" id="showPass" />
+
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputCity">City</label>
+            <input type="text" class="form-control" id="inputCity">
+        </div>
+        <!--<div class="form-group col-md-4">
+            <label for="inputState">State</label>
+            <select id="inputState" class="form-control">
+                <option selected>Choose...</option>
+                <option>...</option>
+            </select>
+        </div>-->
+
+    </div>
+
+    <button type="submit" class="btn btn-primary">Sign up</button>
+</form>

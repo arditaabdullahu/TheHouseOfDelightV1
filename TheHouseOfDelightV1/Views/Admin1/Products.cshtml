@@ -31,7 +31,7 @@
 
                 <td>
                     <a href="/admin1/EditProduct/@item.ID" class="btn btn-primary">Edit</a>
-                    <button type="button" class="btn btn-primary"> Delete</button>
+                    <button type="button" id="btnDeleteProduct" class="btn btn-primary btnDeleteProduct" data-productid="@item.ID">Delete</button>
 
                 </td>
             </tr>
@@ -39,7 +39,35 @@
         }
 
     </tbody>
-
-
-
 </table>
+
+
+
+<div>
+    <form id="DeleteProductForm" method="post" action="/Admin1/DeleteProduct">
+        <input type="hidden" id="idField" name="ID" value="0" />
+
+    </form>
+
+</div>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+<script>
+
+    $(document).ready(function () {
+
+
+        $(".btnDeleteProduct").click(function () {
+            var IdOfProduct = $(this).data("productid");
+            $("#idField").val(IdOfProduct);
+            if (confirm('Are you sure to delete Product?')) {
+                $("#DeleteProductForm").submit();
+            }
+         });
+
+});
+</script>

@@ -29,7 +29,7 @@
 
                 <td>
                     <a href="/admin1/EditTypes/@item.ID" class="btn btn-primary">Edit</a>
-                    <button type="button" class="btn btn-primary"> Delete</button>
+                    <button type="button" id="btnDeleteTypes" class="btn btn-primary btnDeleteTypes" data-typesid="@item.ID">Delete</button>
 
                 </td>
             </tr>
@@ -37,7 +37,34 @@
         }
 
     </tbody>
-
-
-
 </table>
+
+
+<div>
+    <form id="DeleteTypesForm" method="post" action="/Admin1/DeleteTypes">
+        <input type="hidden" id="idField" name="ID" value="0" />
+
+    </form>
+
+</div>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+<script>
+
+    $(document).ready(function () {
+
+
+        $(".btnDeleteTypes").click(function () {
+            var IdOfTypes = $(this).data("typesid");
+            $("#idField").val(IdOfTypes);
+            if (confirm('Are you sure to delete Types?')) {
+                $("#DeleteTypesForm").submit();
+            }
+         });
+
+});
+</script>
