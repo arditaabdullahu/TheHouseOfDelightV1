@@ -1,24 +1,28 @@
-﻿@model TheHouseOfDelightV1.DbModel.Types
+﻿
 @{
-    ViewData["Title"] = "EditTypes";
+    ViewData["Title"] = "LogIn";
 }
 
-<form method="post" action="/Admin1/EditTypes" class="needs-validation" novalidate>
-    <input type="hidden" name="ID" value="@Model.ID" />
-    <div class="form-group  col-md-12">
-        <label for="Name">Name</label>
-        <input type="text" class="form-control" id="Name" name="Name" value="@Model.Name" maxlength="1000" required>
-    </div>
-    <div class="form-group  col-md-12">
-        <label for="Description">Description</label>
-        <input type="text" class="form-control" id="Description" name="Description" value="@Model.Description" maxlength="5000" required>
+<h1>LogIn</h1>
+
+<form method="post" action="/Account/LogIn" id="LogIn" class="needs-validation" novalidate>
+
+    <div class="form-group col-md-3">
+        <label for="inputName">UserName</label>
+        <input type="text" class="form-control" id="UserName" name="UserName" maxlength="50" placeholder="UserName" required>
     </div>
 
-
-
-    <input type="submit" class="btn btn-primary " value="Save" />
-    <a href="/admin1/types" class="btn btn-primary ">Back</a>
+    <div class="form-group col-md-3">
+        <label for="inputPassword">Password</label>
+        <input type="password" class="form-control" placeholder="Password" maxlength="50" name="Password" id="Password" required>
+    </div>
+    <div class="form-group col-md-3">
+        <input type="submit" id="btnLogIn" class="btn btn-primary btnLogIn " value="LogIn" />
+        <a href="/Home/Index" class="btn btn-primary ">Back</a>
+        </div>
 </form>
+
+
 
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 

@@ -39,7 +39,7 @@ namespace TheHouseOfDelightV1.Controllers
             Users.City = model.City;
             dbContext.Users.Add(Users);
             dbContext.SaveChanges();
-            return Redirect("/Users/AddNewUser");
+            return Redirect("/Users/Users");
         }
 
         public IActionResult EditUser(int Id)
@@ -60,7 +60,7 @@ namespace TheHouseOfDelightV1.Controllers
             Users.Password = model.Password;
             Users.City = model.City;
             dbContext.SaveChanges();
-            return Redirect("/Users/EditUser");
+            return Redirect("/Users/Users");
         }
         [HttpPost]
         public IActionResult DeleteUsers(int ID)
@@ -70,5 +70,7 @@ namespace TheHouseOfDelightV1.Controllers
             dbContext.SaveChanges();
             return Redirect("/Users/Users");
         }
+
+       
     }
 }
